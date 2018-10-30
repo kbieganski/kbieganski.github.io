@@ -1,28 +1,41 @@
 // DOM Queries
-var content = $('#content');
-var mainNav = $('#main-nav');
+var body = document.querySelector('body');
+var content = document.querySelector('#content');
+var mainNav = document.querySelector('#main-nav');
+var navHeader = document.querySelector('#nav-header');
+document.querySelector('#js-error').style = 'display:none;';
 
 
 // Navbar-content margin fix
 function makeNavMargin() {
-    content.css('margin-top', mainNav.css('height'));
+	if (window.innerWidth > window.innerHeight && body.clientWidth >= 1280) {
+		content.style.marginTop = 0;
+	} else {
+		content.style.marginTop = mainNav.clientHeight + 'px';
+	}
 }
 
 makeNavMargin();
 
-$(window).resize(makeNavMargin);
+window.onresize = makeNavMargin;
 
+navHeader.onmouseover = function() {
+	navHeader.innerHTML = 'Software Engineer';
+};
+navHeader.onmouseout = function() {
+	navHeader.innerHTML = 'Krzysztof Biegański';
+};
 
 // Navigation
 function stringAfterLast(string, character) {
-		for (var i = string.length - 1; i >= 0; i--)
+	for (var i = string.length - 1; i >= 0; i--)
+	{
+		if (string[i] == character)
 		{
-				if (string[i] == character)
-				{
             return string.substring(i + 1, string.length);
-				}
 		}
-		return '';
+	}
+	return '';
 }
 
 function preprocess(input, cssClass, delimiterStart, delimiterEnd = delimiterStart) {
@@ -46,24 +59,38 @@ function preprocess(input, cssClass, delimiterStart, delimiterEnd = delimiterSta
 }
 
 protocolPattern = /^\s*[a-z]+\:\/{2,3}.*/i;
+defaultPage = 'blog';
 
 function loadContent(name) {
-	$.get('content/' + name + '.md', function(data) {
-		content.html(marked(preprocess(data, 'math', '$')));
-		content.find('a').each(function(i, anchor) {
-			var address = $(anchor).attr('href');
-			if (!protocolPattern.test(address)) {
-				$(anchor).attr('href', '?' + address);
-			}
-       	});
-		content.find('.math').each(function(i, span) {
-			katex.render($(span).text(), span);
-       	});
-    });
+	var request = new XMLHttpRequest();
+	request.open('GET', '/content/' + name + '.md', true);
+	request.onerror = function() {
+		if (name === defaultPage) {
+			content.textContent = "Could not load page.";
+		} else {
+			loadContent(defaultPage);
+		}
+	};
+	request.onload = function() {
+		if (this.status >= 200 && this.status < 400) {
+			content.innerHTML = marked(preprocess(this.response, 'math', '$'));
+			content.querySelectorAll('a').forEach(function(anchor, i) {
+				if (!protocolPattern.test(anchor.href)) {
+					anchor.href = '?' + address;
+				}
+       		});
+			content.querySelectorAll('.math').forEach(function(span, i) {
+				katex.render(span.textContent, span);
+       		});
+		} else {
+			request.onerror();
+		}
+	};
+	request.send();
 }
 
 var currentContent = stringAfterLast(window.location.href, '?');
 if (currentContent === '') {
-    currentContent = 'blog';
+    currentContent = defaultPage;
 }
 loadContent(currentContent);
