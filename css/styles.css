@@ -49,6 +49,7 @@ div#content p {
     margin-bottom: 1em;
     line-height: 1.5em;
     letter-spacing: 0.1em;
+    text-shadow: 0 0 2px #3d8aa9;
 }
 
 div#content h2 {
@@ -61,7 +62,6 @@ div#content a {
 }
 
 div#content a:hover {
-    text-shadow: 0 0 2px #3d8aa9;
     color: #F56E87;
 }
 
@@ -69,4 +69,5 @@ div#content a.icon {
     display: inline;
     margin: 0.25em;
     font-size: 3em;
+    text-shadow: 0 0 2px #3d8aa9;
 }

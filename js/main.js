@@ -28,7 +28,7 @@ class Chord {
     }
 }
 
-let iteration = 0;
+let drawn = 0;
 let chords = [];
 
 function setup() {
@@ -36,8 +36,8 @@ function setup() {
     BACKGROUND_COLOR = '#7AB7CF';
     CHORD_COLOR = '#F56E87';
     CHORD_ALPHA = 32;
-    MAX_COUNT = 100;
-    DURATION = 5;
+    MAX_COUNT = 1000;
+    DURATION = 20;
     createCanvas(windowWidth, windowHeight);
     windowResized();
 }
@@ -46,7 +46,7 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     RADIUS = min(windowWidth, windowHeight) / 2 * 0.8;
     background(BACKGROUND_COLOR);
-    iteration = 0;
+    drawn = 0;
     chords = [];
 }
 
@@ -55,13 +55,13 @@ function draw() {
     for (chord of chords) {
         chord.draw(dt);
     }
-    chords = chords.filter((chord => chord.time < DURATION));
+    let currentCount = chords.length;
+    chords = chords.filter(chord => chord.time < DURATION);
+    drawn += currentCount + chords.length;
     while (chords.length < MAX_COUNT) {
         chords.push(new Chord(color(CHORD_COLOR)));
-        if (iteration > min(windowWidth, windowHeight)) {
+        if (drawn > sqrt(min(windowWidth, windowHeight))) {
             chords.push(new Chord(color(BACKGROUND_COLOR)));
-        } else {
-            iteration += 1;
         }
     }
 }
