@@ -59,6 +59,7 @@ div#content h2 {
 
 div#content a {
     text-decoration: none;
+    color: #FFFBD9;
 }
 
 div#content a:hover {
