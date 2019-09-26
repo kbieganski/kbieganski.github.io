@@ -35,7 +35,7 @@ function setup() {
     MIN_ANGLE = 0.2 * PI;
     BACKGROUND_COLOR = '#7AB7CF';
     CHORD_COLOR = '#F56E87';
-    CHORD_ALPHA = 32;
+    CHORD_ALPHA = 10;
     MAX_COUNT = 1000;
     DURATION = 20;
     createCanvas(windowWidth, windowHeight);
