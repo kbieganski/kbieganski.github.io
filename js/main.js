@@ -32,7 +32,7 @@ let drawn = 0;
 let chords = [];
 
 function setup() {
-    MIN_ANGLE = 0.2 * PI;
+    MIN_ANGLE = 0.125 * PI;
     BACKGROUND_COLOR = '#7AB7CF';
     CHORD_COLOR = '#F56E87';
     CHORD_ALPHA = 10;
@@ -57,11 +57,8 @@ function draw() {
     }
     let currentCount = chords.length;
     chords = chords.filter(chord => chord.time < DURATION);
-    drawn += currentCount + chords.length;
-    while (chords.length < MAX_COUNT) {
-        chords.push(new Chord(color(CHORD_COLOR)));
-        if (drawn > sqrt(min(windowWidth, windowHeight))) {
-            chords.push(new Chord(color(BACKGROUND_COLOR)));
-        }
+    drawn += currentCount - chords.length;
+    while (chords.length < MAX_COUNT && drawn < 2*PI*RADIUS) {
+            chords.push(new Chord(color(CHORD_COLOR)));
     }
 }
