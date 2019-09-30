@@ -36,7 +36,7 @@ function setup() {
     BACKGROUND_COLOR = '#7AB7CF';
     CHORD_COLOR = '#F56E87';
     CHORD_ALPHA = 10;
-    MAX_COUNT = 1000;
+    MAX_COUNT = 1200;
     DURATION = 20;
     createCanvas(windowWidth, windowHeight);
     windowResized();
