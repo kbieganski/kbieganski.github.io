@@ -32,7 +32,7 @@ let drawn = 0;
 let chords = [];
 
 function setup() {
-    MIN_ANGLE = 0.125 * PI;
+    MIN_ANGLE = 0.2 * PI;
     BACKGROUND_COLOR = '#7AB7CF';
     CHORD_COLOR = '#F56E87';
     CHORD_ALPHA = 10;
