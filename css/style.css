@@ -1,0 +1,348 @@
+html {
+  overflow-y: scroll;
+}
+body {
+  margin: 0;
+  font: 14pt/1.5 Garamond, Georgia, serif;
+  color: #404040;
+}
+.content {
+  max-width: 650px;
+  height: 100vh;
+  margin: 0 auto;
+}
+a {
+  color: #07a;
+}
+a:visited {
+  color: #941352;
+}
+a:visited {
+  color: #941352;
+}
+pre {
+  margin: 0;
+}
+.highlight {
+  display: block;
+  background: #fff;
+  padding: 1em;
+  margin: 1em;
+  font-size: 10pt;
+  overflow-x: auto;
+}
+#canvas {
+  position: absolute;
+  z-index: -1;
+}
+.home {
+  font: 14pt/1 Helvetica, Verdana, Tahoma, sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.home .home-center {
+  margin: auto;
+  padding: 2em;
+}
+.home .title {
+  font: 36pt/1 Garamond, Georgia, serif;
+  font-variant: small-caps;
+  text-align: center;
+  text-shadow: 1px 1px 2px #aaa;
+  margin: 0;
+}
+.home .cv {
+  text-align: center;
+}
+.home .cv-item {
+  display: block;
+  line-height: 1.5em;
+  padding: 0.5em;
+}
+.home .cv-item a {
+  text-decoration: none;
+}
+.home .cv-item .cv-time {
+  font-style: italic;
+}
+.home .navbar {
+  font-size: 120%;
+}
+.navbar .menu {
+  padding: 0;
+  margin: auto;
+  width: fit-content;
+}
+.navbar .menu .menu-header,
+.navbar .menu .menu-item {
+  display: inline-block;
+}
+.navbar .menu .menu-header {
+  text-shadow: 1px 1px 2px #aaa;
+  font-family: Garamond, Georgia, serif;
+  font-size: 1.5em;
+  font-variant: small-caps;
+  padding: 0.5em;
+}
+.navbar .menu .menu-item {
+  font-family: Helvetica, Verdana, Tahoma, sans-serif;
+  padding: 1em;
+}
+.navbar .menu .menu-item a {
+  text-decoration: none;
+}
+.post,
+.page {
+  padding: 2em;
+}
+.post .title,
+.page .title {
+  margin-top: 0;
+}
+.post p,
+.page p {
+  line-height: 1.5em;
+}
+.post img,
+.page img {
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
+  filter: drop-shadow(1px 1px 2px #aaa);
+}
+.post .post-time {
+  font-style: italic;
+  line-height: 1;
+}
+/*
+  Theme: GitHub
+  Description: Light theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-light
+  Current colors taken from GitHub's CSS
+*/
+.hljs {
+  color: #24292e;
+  background: #fff;
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+/* prettylights-syntax-keyword */
+  color: #d73a49;
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+/* prettylights-syntax-entity */
+  color: #6f42c1;
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+/* prettylights-syntax-constant */
+  color: #005cc5;
+}
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+/* prettylights-syntax-string */
+  color: #032f62;
+}
+.hljs-built_in,
+.hljs-symbol {
+/* prettylights-syntax-variable */
+  color: #e36209;
+}
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+/* prettylights-syntax-comment */
+  color: #6a737d;
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+/* prettylights-syntax-entity-tag */
+  color: #22863a;
+}
+.hljs-subst {
+/* prettylights-syntax-storage-modifier-import */
+  color: #24292e;
+}
+.hljs-section {
+/* prettylights-syntax-markup-heading */
+  color: #005cc5;
+  font-weight: bold;
+}
+.hljs-bullet {
+/* prettylights-syntax-markup-list */
+  color: #735c0f;
+}
+.hljs-emphasis {
+/* prettylights-syntax-markup-italic */
+  color: #24292e;
+  font-style: italic;
+}
+.hljs-strong {
+/* prettylights-syntax-markup-bold */
+  color: #24292e;
+  font-weight: bold;
+}
+.hljs-addition {
+/* prettylights-syntax-markup-inserted */
+  color: #22863a;
+  background-color: #f0fff4;
+}
+.hljs-deletion {
+/* prettylights-syntax-markup-deleted */
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1c2129;
+    color: #eee;
+  }
+  a {
+    color: #5bf;
+  }
+  a:visited {
+    color: #c44382;
+  }
+  .highlight {
+    display: block;
+    background: #22272e;
+  }
+  .home .title {
+    text-shadow: 2px 2px 4px #000;
+  }
+  .navbar .menu .menu-header {
+    text-shadow: 2px 2px 4px #000;
+  }
+  .post img,
+  .page img {
+    filter: drop-shadow(2px 2px 4px #000);
+  }
+  .post .diagram,
+  .page .diagram {
+    filter: invert(1) hue-rotate(180deg) brightness(1.5) contrast(1.5) drop-shadow(2px 2px 4px #000);
+  }
+  /*
+  Theme: GitHub Dark Dimmed
+  Description: Dark dimmed theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Colors taken from GitHub's CSS
+*/
+  .hljs {
+    color: #adbac7;
+    background: #22272e;
+  }
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-meta .hljs-keyword,
+  .hljs-template-tag,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-variable.language_ {
+/* prettylights-syntax-keyword */
+    color: #f47067;
+  }
+  .hljs-title,
+  .hljs-title.class_,
+  .hljs-title.class_.inherited__,
+  .hljs-title.function_ {
+/* prettylights-syntax-entity */
+    color: #dcbdfb;
+  }
+  .hljs-attr,
+  .hljs-attribute,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-operator,
+  .hljs-variable,
+  .hljs-selector-attr,
+  .hljs-selector-class,
+  .hljs-selector-id {
+/* prettylights-syntax-constant */
+    color: #6cb6ff;
+  }
+  .hljs-regexp,
+  .hljs-string,
+  .hljs-meta .hljs-string {
+/* prettylights-syntax-string */
+    color: #96d0ff;
+  }
+  .hljs-built_in,
+  .hljs-symbol {
+/* prettylights-syntax-variable */
+    color: #f69d50;
+  }
+  .hljs-comment,
+  .hljs-code,
+  .hljs-formula {
+/* prettylights-syntax-comment */
+    color: #768390;
+  }
+  .hljs-name,
+  .hljs-quote,
+  .hljs-selector-tag,
+  .hljs-selector-pseudo {
+/* prettylights-syntax-entity-tag */
+    color: #8ddb8c;
+  }
+  .hljs-subst {
+/* prettylights-syntax-storage-modifier-import */
+    color: #adbac7;
+  }
+  .hljs-section {
+/* prettylights-syntax-markup-heading */
+    color: #316dca;
+    font-weight: bold;
+  }
+  .hljs-bullet {
+/* prettylights-syntax-markup-list */
+    color: #eac55f;
+  }
+  .hljs-emphasis {
+/* prettylights-syntax-markup-italic */
+    color: #adbac7;
+    font-style: italic;
+  }
+  .hljs-strong {
+/* prettylights-syntax-markup-bold */
+    color: #adbac7;
+    font-weight: bold;
+  }
+  .hljs-addition {
+/* prettylights-syntax-markup-inserted */
+    color: #b4f1b4;
+    background-color: #1b4721;
+  }
+  .hljs-deletion {
+/* prettylights-syntax-markup-deleted */
+    color: #ffd8d3;
+    background-color: #78191b;
+  }
+}
