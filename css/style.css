@@ -46,7 +46,7 @@ pre {
   padding: 2em;
 }
 .home .title {
-  font: 36pt/1 Garamond, Georgia, serif;
+  font: 24pt/1 Garamond, Georgia, serif;
   font-variant: small-caps;
   text-align: center;
   text-shadow: 1px 1px 2px #aaa;
@@ -64,7 +64,7 @@ pre {
   text-decoration: none;
 }
 .home .cv-item .cv-time {
-  font-style: italic;
+  font-size: 0.75em;
 }
 .home .navbar {
   font-size: 120%;
